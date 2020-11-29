@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/menu.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/pop.css">
+    <title>lol-xiao</title>
     <script>
         ~function(){
             function setSize(){
@@ -25,7 +26,7 @@
         <div class="menu_title">
             <div class="menu_logo"><img src="assets/logo.png" alt=""></div>
             <div class="menu_switch"></div>
-            <div class="menu_attend">敬请关注</div>
+            <div class="menu_attend" onclick="showPop('pop_attend')">敬请关注</div>
         </div>
         <div class="menu_nav">
             <ul class="m_nav_content">
@@ -38,7 +39,36 @@
         </div>
     </div>
 
+    <!-- 弹窗 敬请关注 -->
+    <div class="pop_container" id="pop_attend">
+        <div class="pop_inner">
+            <p class="pop_title" >请选择预约平台</p>
+            <div class="pop_top">
+                
+            </div>
+            <div class="pop_mid">
+                <div class="pop_content">
+                    <div class="pop_platform">
+                        <div class="pop_login">
+                            <div class="pop_wechat"></div>
+                            <div class="pop_qq"></div>
+                        </div>
+                    </div>
+                    <a class="pop_btn" href="#"></a>
+                </div>
+            </div>
+            <div class="pop_bottom">
+                
+            </div>
+            <div class="pop_close">X</div>
+        </div>    
+    </div>
+        
+    <!-- 公共样式 -->
     <script src="js/common.js"></script>
+    <!-- 菜单 -->
     <script src="js/menu.js"></script>
+    <!-- 弹窗 -->
+    <script src="js/pop.js"></script>
 </body>
 </html>
