@@ -22,6 +22,7 @@
     </script>
 </head>
 <body>
+    <!-- 菜单 -->
     <div class="menu_container">
         <div class="menu_title">
             <div class="menu_logo"><img src="assets/logo.png" alt=""></div>
@@ -34,17 +35,16 @@
                 <li>新闻资讯</li>
                 <li>游戏特色</li>
                 <li>问题反馈</li>
-                <li>FAQ</li>
+                <li onclick="showPop('FAQ')">FAQ</li>
             </ul>
         </div>
     </div>
 
     <!-- 弹窗 敬请关注 -->
-    <div class="pop_container" id="pop_attend">
+    <div class="pop_container" id="pop_attend" style="display: none;">
         <div class="pop_inner">
             <p class="pop_title" >请选择预约平台</p>
             <div class="pop_top">
-                
             </div>
             <div class="pop_mid">
                 <div class="pop_content">
@@ -54,6 +54,61 @@
                             <div class="pop_qq"></div>
                         </div>
                     </div>
+                    <a class="pop_btn" href="#"></a>
+                </div>
+            </div>
+            <div class="pop_bottom">
+                
+            </div>
+            <div class="pop_close">X</div>
+        </div>    
+    </div>
+        
+    <!-- FAQ -->
+    <div class="pop_container" id="FAQ" style="display:none">
+        <div class="pop_inner">
+            <!-- <p class="pop_title" >请选择预约平台</p> -->
+            <div class="pop_top">
+            </div>
+            <div class="pop_mid">
+                <div class="pop_content">
+                    <ul class="pop_faq">
+                        <li>
+                          <p class="pop_q">Q：活动的持续时间是多久？</p>
+                          <p class="pop_ans">
+                            A：活动时间：2019年10月16日至游戏不删档测试开启当天0点结束
+                          </p>
+                        </li>
+                        <li>
+                          <p class="pop_q">
+                            Q：使用同一个帐号在各个渠道都进行了预约，预约奖励能够叠加吗？
+                          </p>
+                          <p class="pop_ans">
+                            A：亲爱的召唤师，预约的奖励每个账号只能领取一份，是不能叠加的。关注并参与后续其他预约活动，还有更加丰富的奖励可以领取哦！
+                          </p>
+                        </li>
+                        <li>
+                          <p class="pop_q">Q：预约奖励应该如何领取？</p>
+                          <p class="pop_ans">
+                            A：
+                            <span>使用QQ预约</span>
+                            ：预约成功后，预约礼包将以卡券形式发放至：动态-游戏-礼包-礼券仓库，游戏不删档测试开启后可以兑换领取。对于未收到卡券的玩家，预约奖励将在游戏不删档上线后，在游戏中通过邮件发放至预约的账户中。请各位召唤师耐心等待~
+                          </p>
+                          <p class="pop_ans">
+                            <span class="txit">使用微信预约</span>
+                            ：预约成功后，预约礼包将通过卡券的形式发放至：我-卡包-卡券，游戏不删档测试开启后可以兑换领取。对于未收到卡券的玩家，预约奖励将在游戏不删档上线后，在游戏中通过邮件发放至预约的账户中。请各位召唤师耐心等待~
+                          </p>
+                        </li>
+                        <li>
+                          <p class="pop_q">Q：预约失败，遇到了问题怎么办？</p>
+                          <p class="pop_ans">
+                            A：如果您遇到了任何特殊情况及问题，请点击链接提交您的问题，后续会有客服为您处理：
+                            <a href="https://kf.qq.com/touch/bill/191010selfqad0ca8c2d.html" target="_blank">
+                              kf.qq.com/touch/bill/191010selfqad0ca8c2d.html
+                            </a>
+                          </p>
+                        </li>
+                      </ul>
                     <a class="pop_btn" href="#"></a>
                 </div>
             </div>

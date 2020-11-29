@@ -58,9 +58,6 @@
   border-radius: 50%;
   text-align: center;
 }
-#pop_attend {
-  display: none;
-}
 #pop_attend .pop_platform .pop_login {
   display: flex;
   justify-content: center;
@@ -84,4 +81,23 @@
 }
 #pop_attend .pop_platform .pop_login .pop_qq {
   background: url(../assets/pop_login_sel_qq.jpg) no-repeat 0 0 / 100%;
+}
+#FAQ .pop_faq {
+  font-size: 0.24rem;
+  width: 85%;
+  height: 7.2rem;
+  margin: 0 auto;
+  overflow-y: scroll;
+  line-height: 0.35rem;
+  font-weight: bold;
+}
+#FAQ li {
+  margin-bottom: 0.2rem;
+}
+#FAQ li .pop_q {
+  margin-bottom: 0.1rem;
+  color: #896144;
+}
+#FAQ li .pop_ans {
+  color: #000;
 }

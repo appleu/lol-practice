@@ -1,7 +1,7 @@
 
    function showPop(id){
     //    console.log(1);
-        $('#'+id).style.display = 'flex';
+        $('#'+id).style.display = '';
    } 
 
    let array = $$('.pop_close');
