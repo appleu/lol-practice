@@ -17,7 +17,7 @@
   height: 0.5rem;
 }
 .menu_container .menu_switch {
-  position: relative;
+  transition: 0.5s;
   float: right;
   margin-top: 0.5rem;
   margin-right: 0.2rem;
@@ -26,22 +26,38 @@
   background-color: #fff;
 }
 .menu_container .menu_switch::before {
-  position: absolute;
-  top: -0.09rem;
-  left: 0;
+  transition: 0.5s;
+  display: block;
+  margin-top: -0.09rem;
   content: '';
   width: 0.44rem;
   height: 0.02rem;
   background-color: #fff;
 }
 .menu_container .menu_switch::after {
-  position: absolute;
-  top: 0.09rem;
-  left: 0;
+  transition: 0.5s;
+  display: block;
+  margin-top: 0.16rem;
   content: '';
   width: 0.44rem;
   height: 0.02rem;
   background-color: #fff;
+}
+.menu_container .menu_switch.menu_expand {
+  transition: 0.5s;
+  background-color: #000;
+}
+.menu_container .menu_switch.menu_expand::before {
+  transition: 0.5s;
+  transform: rotate(45deg);
+  margin-top: 0;
+  background-color: #f33;
+}
+.menu_container .menu_switch.menu_expand::after {
+  transition: 0.5s;
+  transform: rotate(-45deg);
+  background-color: #f33;
+  margin-top: -0.016rem;
 }
 .menu_container .menu_attend {
   float: right;
@@ -52,4 +68,36 @@
   border: 3px solid #ffe537;
   line-height: 0.51rem;
   text-align: center;
+}
+.menu_container .menu_nav {
+  position: fixed;
+  opacity: 0;
+  z-index: 20;
+  top: 0.98rem;
+  right: 0;
+  width: 0;
+  height: 0;
+  font-size: 0.3rem;
+  background-color: #1e1e1e;
+  transition: 0.5s;
+}
+.menu_container .menu_nav .m_nav_content {
+  text-align: center;
+}
+.menu_container .menu_nav .m_nav_content li {
+  margin: 0 auto;
+  width: 90%;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-bottom: 1px solid #000;
+}
+.menu_container .menu_nav .m_nav_content li:last-child {
+  border-bottom: none;
+  letter-spacing: 0.1rem;
+}
+.menu_container .menu_nav.menu_nav--expand {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
 }
