@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <title>Document</title>
+    <script>
+        ~function(){
+            function setSize(){
+                var html = document.documentElement;
+                var designWidth = 750;
+                html.style.fontSize = html.clientWidth / designWidth * 100 +'px';
+            }
+            setSize();
+            window.onresize = setSize; 
+        }()
+    </script>
+</head>
+<body>
+    <div class="menu_container">
+        <div class="menu_title">
+            <div class="menu_logo"><img src="assets/logo.png" alt=""></div>
+            <div class="menu_switch"></div>
+            <div class="menu_attend">敬请关注</div>
+        </div>
+    </div>
+</body>
+</html>
