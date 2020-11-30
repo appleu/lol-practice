@@ -7,3 +7,7 @@ function $$(select,el){
     let e = el || document;
     return e.querySelectorAll(select);
 }
+
+function height(){
+   return document.documentElement.clientHeight;
+}
