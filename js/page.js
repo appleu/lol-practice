@@ -33,10 +33,12 @@ function moving(offset){
         if(pageIndx !== index) {
             let element = pages[index];
             element.style.top = (index-pageIndx)*height()+offset+'px';
-            console.log(element.style.top);
+            // console.log(element.style.top);
         }
     }
-    if(pageIndx >0 && offset < 0){
+    if(pageIndx === 0 && offset > 0) return;//少了边界判断
+    if(pageIndx === 2 && offset < 0) return;
+    if(pageIndx >=0 && offset < 0){
         nextIndx = pageIndx + 1;
     }else if(pageIndx < pages.length && offset > 0){
         nextIndx = pageIndx - 1
@@ -47,24 +49,31 @@ function moving(offset){
 
 function finish(){
     if(nextIndx !== null){
-        pageIndx = nextIndx;
-        pages[pageIndx].style.transition = '.5s';
-        pageInit();
+        pages[nextIndx].style.transition = '.5s';
+        pages[nextIndx].top = 0;
+        setTimeout(function(){
+            pages[pageIndx].style.transition = "";
+            pageIndx = nextIndx;
+            nextIndx = null;
+            pageInit();
+        },500);
     }
 }
 
 pageInit();
 //有bug  T--T
-$('.page_container').ontouchstart=function(e){
-    console.log(e);
+let pContainer = $('.page_container');
+pContainer.ontouchstart=function(e){
+    //console.log(e);
     let y = e.touches[0].clientY;
-    console.log(y);
-    $('.page_container').ontouchmove = function(e){
+    //console.log(y);
+    pContainer.ontouchmove = function(e){
         let y1 = e.touches[0].clientY-y;
-        moving(y1-y);
-        $('.page_container').ontouchend = function(){
+        console.log(y1);
+        moving(y1);
+        pContainer.ontouchend = function(){
             finish();
-            $('.page_container').ontouchmove = null;
+            pContainer.ontouchmove = null;
         }
     }
 }
