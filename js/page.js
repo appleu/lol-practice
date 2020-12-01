@@ -52,7 +52,7 @@ function finish(){
         pages[nextIndx].style.transition = '.5s';
         pages[nextIndx].top = 0;
         setTimeout(function(){
-            pages[pageIndx].style.transition = "";
+            // pages[pageIndx].style.transition = ""; //加了，切换下一张页面松开时，当前页面会瞬间改变top值，导致看到了页面背后的背景色
             pageIndx = nextIndx;
             nextIndx = null;
             pageInit();
