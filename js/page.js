@@ -12,13 +12,13 @@ let pages = $$('.page_container .page');
 function pageInit(/*pageIndx*/){
     console.log('init');
     for (let index = 0; index < pages.length; index++) {
+        const element = pages[index]
         if(pageIndx === index){
-            pages[pageIndx].style.zIndex = 1;
-            pages[pageIndx].style.top = 0;
-            // const element = pages[index]
+            element.style.zIndex = 1;
+            element.style.top = 0;
         }else{
-            pages[index].style.top = (index-pageIndx) * height() +'px';
-            pages[index].style.zIndex = 10;
+            element.style.top = (index-pageIndx) * height() +'px';
+            element.style.zIndex = 10;
         }
     }
 }
@@ -48,22 +48,37 @@ function moving(offset){
 }
 
 function finish(){
-    if(nextIndx !== null){
-        pages[nextIndx].style.transition = '.5s';
-        pages[nextIndx].top = 0;
-        setTimeout(function(){
-            // pages[pageIndx].style.transition = ""; //加了，切换下一张页面松开时，当前页面会瞬间改变top值，导致看到了页面背后的背景色
-            pageIndx = nextIndx;
-            nextIndx = null;
-            pageInit();
-        },500);
+    // if(nextIndx !== null){
+    //     pages[nextIndx].style.transition = '.5s';
+    //     pages[nextIndx].top = 0;
+    //     setTimeout(function(){
+    //         // pages[pageIndx].style.transition = ""; //加了，切换下一张页面松开时，当前页面(已经不是第一张了)会瞬间改变top值，导致看到了页面背后的背景色
+    //         pageIndx = nextIndx;
+    //         //pages[pageIndx].style.transition = "";//这里才是当前的页面，但是加了动画就没了
+    //         nextIndx = null;
+    //         pageInit();
+    //     },500);
+    // }
+    if(nextIndx === null){
+        pageInit();
+        return;
     }
+    let nextPage = pages[nextIndx];
+    nextPage.style.transition = ".5s";
+    nextPage.style.top = 0;
+
+    setTimeout(function(){
+        pageIndx = nextIndx;
+        nextPage.style.transition = "";
+        pageInit();//这里必须要执行初始化操作，因为前面只是改变了nextPage的top，z-index值没有改动
+    },500)
 }
 
 pageInit();
 //有bug  T--T
 let pContainer = $('.page_container');
-pContainer.ontouchstart=function(e){
+//pContainer.ontouchstart=function(e){
+pContainer.addEventListener("touchstart",function(e){
     //console.log(e);
     let y = e.touches[0].clientY;
     //console.log(y);
@@ -74,6 +89,11 @@ pContainer.ontouchstart=function(e){
         pContainer.ontouchend = function(){
             finish();
             pContainer.ontouchmove = null;
+            pContainer.ontouchstart = null;
         }
     }
+},{passiv:true})
+
+
+function showPage(index){
 }
