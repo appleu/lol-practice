@@ -89,11 +89,31 @@ pContainer.addEventListener("touchstart",function(e){
         pContainer.ontouchend = function(){
             finish();
             pContainer.ontouchmove = null;
-            pContainer.ontouchstart = null;
-        }
+            // pContainer.ontouchstart = null;
+        } 
     }
 },{passiv:true})
 
 
 function showPage(index){
+    let nextPage = pages[index];
+    if(index > pageIndx){
+        pages[index].style.top = height()+'px';
+    }else if(index < pageIndx){
+        pages[index].style.top = -height()+'px';
+        console.log(pages[index].style.top);
+    }else{
+        if(pageIndx === 0){
+            pageIndx++;
+        }else{
+            pageIndx--;
+        }
+        pageInit();
+    }
+    nextPage.clientHeight;//为了触发浏览器重绘，让当前page的top从0-height-0，不要优化而跳过中间的高度
+    nextIndx = index;//有人像家雀儿，不愿意挪窝，有人像候鸟，永远在路上 》 北岛   日暮酒醒人已远，满天风雨下西楼  》 唐 许浑  谢亭送别
+    // 才学加持，行稳致远    他一动，要闯祸；他安静，憋坏招儿  
+
+
+    finish();
 }
